@@ -1,5 +1,5 @@
 # ProjektPSI
-#Temat projektu: Serwis biblioteki filmowej - spis, recenzje
+Temat projektu: Serwis biblioteki filmowej - spis, recenzje
 
 # Model bazy danych
 
