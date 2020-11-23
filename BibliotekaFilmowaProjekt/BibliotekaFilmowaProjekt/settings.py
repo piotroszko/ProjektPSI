@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '05g@x$+!ex7d+m3-lj9#9)ir-9rkthtrj4iam!b=-3v*eg81zh'
+SECRET_KEY = '6=&42r)x00ku-10=le_l&g@mj4$o6x7+53kk&z(sl52f1^p!dr'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'BibliotekaFilmowaProjekt',
 ]
 
 MIDDLEWARE = [
@@ -76,9 +77,9 @@ WSGI_APPLICATION = 'BibliotekaFilmowaProjekt.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'mydb',
+        'NAME': 'bibliotekafilmowa',
         'USER': 'root',
-        'PASSWORD': '85208520pP',
+        'PASSWORD': '',
         'HOST': '127.0.0.1',
         'PORT': '3306',
     }
