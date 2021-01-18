@@ -19,7 +19,8 @@ class Filmy(models.Model):
         managed = False
         db_table = 'filmy'
         unique_together = (('id_filmu', 'id_rezysera', 'id_scenarzysty'),)
-
+    def __str__(self):
+        return self.id_filmu+ ". " + self.nazwa_filmu
 
 class Recenzje(models.Model):
     id_recenzji = models.AutoField(primary_key=True)
@@ -32,7 +33,8 @@ class Recenzje(models.Model):
         managed = False
         db_table = 'recenzje'
         unique_together = (('id_recenzji', 'id_uzytkownika', 'id_filmu'),)
-
+    def __str__(self):
+        return self.id_recenzji+". "+ self.tekst
 
 class Rezyserowie(models.Model):
     id_rezysera = models.AutoField(primary_key=True)
@@ -42,7 +44,8 @@ class Rezyserowie(models.Model):
     class Meta:
         managed = False
         db_table = 'rezyserowie'
-
+    def __str__(self):
+        return self.imie + " " + self.nazwisko
 
 class Scenarzysci(models.Model):
     id_scenarzysty = models.AutoField(primary_key=True)
@@ -52,7 +55,8 @@ class Scenarzysci(models.Model):
     class Meta:
         managed = False
         db_table = 'scenarzysci'
-
+    def __str__(self):
+        return self.imie + " " + self.nazwisko
 
 class Uzytkownicy(models.Model):
     id_uzytkownika = models.AutoField(primary_key=True)
@@ -62,3 +66,5 @@ class Uzytkownicy(models.Model):
     class Meta:
         managed = False
         db_table = 'uzytkownicy'
+    def __str__(self):
+        return self.nazwa

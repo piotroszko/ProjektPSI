@@ -6,10 +6,12 @@ from .serializers import FilmySerializer, RecenzjeSerializer, RezyserowieSeriali
 from .models import Filmy,Recenzje,Rezyserowie,Scenarzysci
 
 class ListaFilmow(generics.ListCreateAPIView):
-    def get(self, request, format=None):
-        queryset = Filmy.objects.all()
-        serializer = FilmySerializer(queryset)
-        return Response(serializer.data)
+    queryset = Filmy.objects.all()
+    serializer = FilmySerializer(queryset)
+    name = 'filmy'
+    filterset_fields = ['nazwa_filmu']
+    search_fields = ['nazwa_filmu']
+    ordering_fields = ['nazwa_filmu']
     def post(self, request, format=None):
         serializer = FilmySerializer(data=request.data)
         if serializer.is_valid():
@@ -28,10 +30,12 @@ class Recenzje(generics.ListCreateAPIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 class Rezyserowie(generics.ListCreateAPIView):
-    def get(self, request, format=None):
-        queryset = Rezyserowie.objects.all()
-        serializer = RezyserowieSerializer(queryset)
-        return Response(serializer.data)
+    queryset = Rezyserowie.objects.all()
+    serializer = RezyserowieSerializer(queryset)
+    name = 'rezyserowie'
+    filter_fields = ['imie', 'nazwisko']
+    search_fields = ['imie', 'nazwisko']
+    ordering_fields = ['imie', 'nazwisko']
     def post(self, request, format=None):
         serializer = RezyserowieSerializer(data=request.data)
         if serializer.is_valid():
@@ -39,10 +43,12 @@ class Rezyserowie(generics.ListCreateAPIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 class Scenarzysci(generics.ListCreateAPIView):
-    def get(self, request, format=None):
-        queryset = Scenarzysci.objects.all()
-        serializer = ScenarzysciSerializer(queryset)
-        return Response(serializer.data)
+    name = 'scenarzysci'
+    filter_fields = ['imie', 'nazwisko']
+    search_fields = ['imie', 'nazwisko']
+    ordering_fields = ['imie', 'nazwisko']
+    queryset = Scenarzysci.objects.all()
+    serializer = ScenarzysciSerializer(queryset)
     def post(self, request, format=None):
         serializer = ScenarzysciSerializer(data=request.data)
         if serializer.is_valid():
